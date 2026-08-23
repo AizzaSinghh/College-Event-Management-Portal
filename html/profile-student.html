@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" data-role="student">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile | CampusPulse</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="../js/guard.js"></script>
+</head>
+<body>
+
+  <div class="announce-strip">Registrations for Fest Season are now open!</div>
+
+  <nav class="navbar">
+    <a href="../index.html" class="logo">campus<span>pulse</span>.</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="clubs.html">Clubs</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="nav-actions">
+  <a href="dashboard-student.html" class="btn btn-ghost">My Dashboard</a>
+  <a href="logout.html" class="btn btn-primary">Log Out</a>
+</div>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main class="grid-bg">
+
+    <header class="profile-hero">
+      <span class="section-label">Account Settings</span>
+      <h1>Customize Your Profile</h1>
+      <p>Update how you appear on CampusPulse and how the portal works for you.</p>
+    </header>
+
+    <div class="profile-layout">
+
+      <!-- Avatar color picker -->
+      <section class="profile-card">
+        <h2>Your Avatar</h2>
+        <p class="profile-card-sub">Pick a color for your initials avatar.</p>
+
+        <div class="avatar-preview-row">
+          <span class="avatar-initials avatar-preview avatar-navy" id="avatar-preview">MS</span>
+        </div>
+
+        <input type="radio" name="avatar-color" id="avatar-navy" class="avatar-radio" checked>
+        <input type="radio" name="avatar-color" id="avatar-coral" class="avatar-radio">
+        <input type="radio" name="avatar-color" id="avatar-olive" class="avatar-radio">
+        <input type="radio" name="avatar-color" id="avatar-plum" class="avatar-radio">
+
+        <div class="avatar-swatches">
+          <label for="avatar-navy" class="avatar-swatch avatar-swatch-navy" aria-label="Navy"></label>
+          <label for="avatar-coral" class="avatar-swatch avatar-swatch-coral" aria-label="Coral"></label>
+          <label for="avatar-olive" class="avatar-swatch avatar-swatch-olive" aria-label="Olive"></label>
+          <label for="avatar-plum" class="avatar-swatch avatar-swatch-plum" aria-label="Plum"></label>
+        </div>
+      </section>
+
+      <!-- Personal info -->
+      <section class="profile-card">
+        <h2>Personal Info</h2>
+        <form class="profile-form">
+          <div class="form-group">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" value="Mishti Sharma">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="year">Year</label>
+              <select id="year">
+                <option>1st Year</option>
+                <option selected>2nd Year</option>
+                <option>3rd Year</option>
+                <option>4th Year</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="branch">Branch</label>
+              <input type="text" id="branch" value="CSE (AI/ML)">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="bio">Short Bio</label>
+            <textarea id="bio" rows="3">Building things, chasing deadlines, occasionally sleeping.</textarea>
+          </div>
+        </form>
+      </section>
+
+      <!-- Interests -->
+      <section class="profile-card">
+        <h2>Your Interests</h2>
+        <p class="profile-card-sub">Select what you'd like to see more of on your homepage.</p>
+
+        <div class="interest-chips">
+          <input type="checkbox" id="int-tech" class="interest-checkbox" checked>
+          <label for="int-tech" class="interest-chip">Tech &amp; Hackathons</label>
+
+          <input type="checkbox" id="int-cultural" class="interest-checkbox" checked>
+          <label for="int-cultural" class="interest-chip">Cultural &amp; Fests</label>
+
+          <input type="checkbox" id="int-sports" class="interest-checkbox">
+          <label for="int-sports" class="interest-chip">Sports</label>
+
+          <input type="checkbox" id="int-literary" class="interest-checkbox">
+          <label for="int-literary" class="interest-chip">Literary &amp; Debate</label>
+
+          <input type="checkbox" id="int-volunteer" class="interest-checkbox">
+          <label for="int-volunteer" class="interest-chip">Volunteering</label>
+
+          <input type="checkbox" id="int-music" class="interest-checkbox" checked>
+          <label for="int-music" class="interest-chip">Music</label>
+        </div>
+      </section>
+
+      <!-- Appearance -->
+      <section class="profile-card">
+        <h2>Appearance</h2>
+        <div class="settings-row">
+          <div>
+            <h3>Dark Mode</h3>
+            <p>Switch between light and dark across CampusPulse.</p>
+          </div>
+          <div class="theme-toggle">
+            <input type="checkbox" id="theme-switch" class="theme-checkbox">
+            <label for="theme-switch" class="theme-label">
+              <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+              </svg>
+              <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+              </svg>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Notifications -->
+      <section class="profile-card">
+        <h2>Notifications</h2>
+
+        <div class="settings-row settings-row-toggle">
+          <div>
+            <h3>New Events</h3>
+            <p>Get notified when a new event matching your interests is posted.</p>
+          </div>
+          <input type="checkbox" class="switch-checkbox" checked>
+        </div>
+
+        <div class="settings-row settings-row-toggle">
+          <div>
+            <h3>Registration Reminders</h3>
+            <p>Remind me before a deadline for something I've registered for.</p>
+          </div>
+          <input type="checkbox" class="switch-checkbox" checked>
+        </div>
+
+        <div class="settings-row settings-row-toggle">
+          <div>
+            <h3>Club Updates</h3>
+            <p>Updates from clubs I'm a member of.</p>
+          </div>
+          <input type="checkbox" class="switch-checkbox">
+        </div>
+      </section>
+
+      <button type="button" class="btn-pill profile-save">
+        <svg class="btn-star" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/>
+        </svg>
+        Save Changes
+      </button>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="../index.html" class="logo">campus<span>pulse</span>.</a>
+        <p>CampusPulse is your college's one-stop portal for discovering events, joining clubs, and never missing a fest again. Built by students, for students.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-links" aria-label="Categories">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="events.html#tech">Tech Events</a></li>
+          <li><a href="events.html#cultural">Cultural Fests</a></li>
+          <li><a href="events.html#sports">Sports Meets</a></li>
+        </ul>
+      </nav>
+      <div class="footer-newsletter">
+        <h4>Stay Updated</h4>
+        <p>Get notified about new events and fests.</p>
+        <form class="newsletter-form" action="#" method="POST">
+          <input type="email" name="newsletter-email" placeholder="Your email" required>
+          <button type="submit" class="btn-mini">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 CampusPulse. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

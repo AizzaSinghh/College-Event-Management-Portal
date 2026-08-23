@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | CampusPulse</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Announcement Strip -->
+  <div class="announce-strip">Registrations for Fest Season are now open!</div>
+
+  <!-- Fixed Navigation -->
+  <nav class="navbar">
+    <a href="../index.html" class="logo">campus<span>pulse</span>.</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="clubs.html">Clubs</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="signin.html" class="btn btn-ghost">Sign In</a>
+      <a href="signup.html" class="btn btn-primary">Sign Up</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Sign Up Section -->
+  <main class="auth-section">
+    <div class="auth-card auth-card-wide">
+      <span class="section-label">Get Started</span>
+      <h1 class="auth-heading">Create your account.</h1>
+      <p class="auth-sub">Tell us who you are, and we'll set things up accordingly.</p>
+
+      <!-- Hidden radios drive the visual card picker below, pure CSS -->
+      <input type="radio" name="role" id="role-student" class="role-radio" checked>
+      <input type="radio" name="role" id="role-organizer" class="role-radio">
+
+      <div class="role-picker">
+        <label for="role-student" class="role-card">
+          <span class="role-check">✓</span>
+          <span class="role-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 10L12 5 2 10l10 5 10-5z"/>
+              <path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/>
+            </svg>
+          </span>
+          <span class="role-title">I'm a Student</span>
+          <span class="role-desc">Browse events, join clubs, register in one click</span>
+        </label>
+
+        <label for="role-organizer" class="role-card">
+          <span class="role-check">✓</span>
+          <span class="role-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <path d="M8 2v4M16 2v4M3 10h18"/>
+              <path d="M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01"/>
+            </svg>
+          </span>
+          <span class="role-title">I'm an Organizer</span>
+          <span class="role-desc">Create events, manage registrations, run your club</span>
+        </label>
+      </div>
+
+      <form class="auth-form" action="#" method="POST">
+        <div class="form-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">College Email</label>
+          <input type="email" id="email" name="email" placeholder="you@college.edu" required>
+        </div>
+
+        <!-- only visible when the Organizer card is selected -->
+        <div class="form-group org-only">
+          <label for="orgname">Club / Department Name</label>
+          <input type="text" id="orgname" name="orgname" placeholder="e.g. Robotics Club">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Create a password" required minlength="8">
+        </div>
+
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter your password" required minlength="8">
+        </div>
+
+        <div class="form-checkbox">
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms">I agree to the <a href="terms.html" class="inline-link">Terms &amp; Conditions</a></label>
+        </div>
+      </form>
+
+      <!-- two links, only the one matching the selected card shows -->
+   <div class="continue-buttons">
+<a href="dashboard-student.html" id="continue-student" class="btn-pill continue-student">    <svg class="btn-star" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/>
+    </svg>
+    Create Student Account
+  </a>
+<a href="dashboard-organizer.html" id="continue-organizer" class="btn-pill continue-organizer">    <svg class="btn-star" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/>
+    </svg>
+    Create Organizer Account
+  </a>
+</div>
+
+      <p class="auth-footer-text">Already have an account? <a href="signin.html" class="inline-link">Sign In</a></p>
+    </div>
+  </main>
+
+  <script src="../js/auth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" data-role="student">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Dashboard | CampusPulse</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="../js/guard.js"></script>
+</head>
+<body>
+
+  <div class="announce-strip">Registrations for Fest Season are now open!</div>
+
+  <nav class="navbar">
+    <a href="../index.html" class="logo">campus<span>pulse</span>.</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="clubs.html">Clubs</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="nav-actions">
+  <a href="dashboard-student.html" class="btn btn-ghost">My Dashboard</a>
+  <a href="logout.html" class="btn btn-primary">Log Out</a>
+</div>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main class="grid-bg">
+
+    <!-- Welcome banner -->
+    <header class="dash-welcome">
+      <div class="dash-welcome-left">
+        <span class="dash-avatar">MS</span>
+        <div>
+          <span class="section-label">Student Dashboard</span>
+          <h1>Welcome back, Mishti.</h1>
+          <p>Here's what's happening with your events and clubs.</p>
+        </div>
+      </div>
+
+      <a href="profile-student.html" class="dash-edit-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20h9M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/>
+        </svg>
+        Edit Profile
+      </a>
+    </header>
+
+    <!-- Quick stats -->
+    <section class="dash-stats">
+      <div class="dash-stat-card dash-stat-pink">
+        <span class="dash-stat-number">3</span>
+        <span class="dash-stat-label">Events Registered</span>
+      </div>
+      <div class="dash-stat-card dash-stat-blue">
+        <span class="dash-stat-number">2</span>
+        <span class="dash-stat-label">Clubs Joined</span>
+      </div>
+      <div class="dash-stat-card dash-stat-green">
+        <span class="dash-stat-number">1</span>
+        <span class="dash-stat-label">Upcoming This Week</span>
+      </div>
+    </section>
+
+    <!-- My Events -->
+    <section class="dash-section">
+      <div class="dash-section-heading">
+        <h2>My Upcoming Events</h2>
+        <a href="events.html" class="inline-link">Browse all events →</a>
+      </div>
+
+      <div class="category-grid">
+        <div class="event-card">
+          <div class="event-date event-date-pink">
+            <span class="event-day">14</span>
+            <span class="event-month">AUG</span>
+          </div>
+          <div class="event-info">
+            <h3>TechFest 2026: Hackout</h3>
+            <p class="event-meta">10:00 AM &bull; Main Auditorium</p>
+            <p class="event-desc">You're registered. Team of 3 &mdash; check your email for team details.</p>
+            <a href="event-detail.html" class="btn-mini">View Details</a>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date event-date-blue">
+            <span class="event-day">18</span>
+            <span class="event-month">AUG</span>
+          </div>
+          <div class="event-info">
+            <h3>Open Mic Night</h3>
+            <p class="event-meta">6:00 PM &bull; Amphitheatre</p>
+            <p class="event-desc">You're registered as an attendee. Doors open 30 minutes early.</p>
+            <a href="#" class="btn-mini">View Details</a>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date event-date-green">
+            <span class="event-day">22</span>
+            <span class="event-month">AUG</span>
+          </div>
+          <div class="event-info">
+            <h3>Inter-College Football Meet</h3>
+            <p class="event-meta">4:00 PM &bull; Sports Ground</p>
+            <p class="event-desc">You're registered to cheer squad. Wear college colors.</p>
+            <a href="#" class="btn-mini">View Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- My Clubs -->
+    <section class="dash-section dash-section-tinted">
+      <div class="dash-section-heading">
+        <h2>My Clubs</h2>
+        <a href="clubs.html" class="inline-link">Browse all clubs →</a>
+      </div>
+
+      <div class="category-grid">
+        <div class="club-page-card">
+          <span class="club-tag">Technical</span>
+          <img src="../images/club-1.jpg" alt="Robotics Club">
+          <h3>Robotics Club</h3>
+          <p>Member since Feb 2026. Next meeting: Tuesday, 5:00 PM.</p>
+          <a href="club-detail.html" class="btn-enroll">View Club</a>
+        </div>
+
+        <div class="club-page-card">
+          <span class="club-tag">Cultural</span>
+          <img src="../images/club-2.jpg" alt="Dance Club">
+          <h3>Dance Club</h3>
+          <p>Member since Jan 2026. Practice sessions every weekend.</p>
+          <a href="#" class="btn-enroll">View Club</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Discover more -->
+    <section class="dash-cta">
+      <h2>Looking for something new?</h2>
+      <p>Explore every event and club on campus, all in one place.</p>
+      <div class="dash-cta-buttons">
+        <a href="events.html" class="btn-pill">
+          <svg class="btn-star" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/>
+          </svg>
+          Explore Events
+        </a>
+        <a href="clubs.html" class="btn-pill">
+          <svg class="btn-star" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/>
+          </svg>
+          Browse Clubs
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="../index.html" class="logo">campus<span>pulse</span>.</a>
+        <p>CampusPulse is your college's one-stop portal for discovering events, joining clubs, and never missing a fest again. Built by students, for students.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-links" aria-label="Categories">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="events.html#tech">Tech Events</a></li>
+          <li><a href="events.html#cultural">Cultural Fests</a></li>
+          <li><a href="events.html#sports">Sports Meets</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-newsletter">
+        <h4>Stay Updated</h4>
+        <p>Get notified about new events and fests.</p>
+        <form class="newsletter-form" action="#" method="POST">
+          <input type="email" name="newsletter-email" placeholder="Your email" required>
+          <button type="submit" class="btn-mini">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 CampusPulse. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

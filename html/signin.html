@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In | CampusPulse</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Announcement Strip -->
+  <div class="announce-strip">Registrations for Fest Season are now open!</div>
+
+  <!-- Fixed Navigation -->
+  <nav class="navbar">
+    <a href="../index.html" class="logo">campus<span>pulse</span>.</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="clubs.html">Clubs</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="signin.html" class="btn btn-ghost">Sign In</a>
+      <a href="signup.html" class="btn btn-primary">Sign Up</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Sign In Section -->
+  <main class="auth-section">
+    <div class="auth-card auth-card-wide">
+      <span class="section-label">Welcome Back</span>
+      <h1 class="auth-heading">Sign in to your account.</h1>
+      <p class="auth-sub">Let us know who you are so we can take you to the right place.</p>
+
+      <!-- Hidden radios drive the visual card picker below, pure CSS -->
+      <input type="radio" name="role" id="role-student" class="role-radio" checked>
+      <input type="radio" name="role" id="role-organizer" class="role-radio">
+
+      <div class="role-picker">
+        <label for="role-student" class="role-card">
+          <span class="role-check">✓</span>
+          <span class="role-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 10L12 5 2 10l10 5 10-5z"/>
+              <path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/>
+            </svg>
+          </span>
+          <span class="role-title">I'm a Student</span>
+          <span class="role-desc">See your events, clubs and registrations</span>
+        </label>
+
+        <label for="role-organizer" class="role-card">
+          <span class="role-check">✓</span>
+          <span class="role-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <path d="M8 2v4M16 2v4M3 10h18"/>
+              <path d="M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01"/>
+            </svg>
+          </span>
+          <span class="role-title">I'm an Organizer</span>
+          <span class="role-desc">Manage your club's events and members</span>
+        </label>
+      </div>
+
+      <form class="auth-form" action="#" method="POST">
+        <div class="form-group">
+          <label for="email">College Email</label>
+          <input type="email" id="email" name="email" placeholder="you@college.edu" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+          <a href="forgot-password.html" class="inline-link forgot-link">Forgot password?</a>
+        </div>
+
+        <!-- Simple CSS-only captcha: user must retype the shown text -->
+        <div class="form-group">
+          <label for="captcha">Security Check</label>
+          <div class="captcha-box">
+           <span class="captcha-text" id="captcha-text">7xK9pL</span>
+          </div>
+          <input type="text" id="captcha" name="captcha" placeholder="Type the code above" required>
+        </div>
+      </form>
+
+      <!-- two links, only the one matching the selected card shows -->
+      <div class="continue-buttons">
+<a href="dashboard-student.html" id="continue-student" class="btn-pill continue-student">          <svg class="btn-star" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/>
+          </svg>
+          Sign In as Student
+        </a>
+<a href="dashboard-organizer.html" id="continue-organizer" class="btn-pill continue-organizer">          <svg class="btn-star" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/>
+          </svg>
+          Sign In as Organizer
+        </a>
+      </div>
+
+      <p class="auth-footer-text">Don't have an account? <a href="signup.html" class="inline-link">Sign Up</a></p>
+    </div>
+  </main>
+
+  <script src="../js/auth.js"></script>
+
+</body>
+</html>
