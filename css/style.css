@@ -3791,3 +3791,71 @@ body:has(#theme-switch:checked) .newsletter-form .btn-mini {
   background: var(--blue);
   color: #14110F;
 }
+
+/* ==========================================
+   JS FEATURES — toast, modal, mobile menu, misc
+   ========================================== */
+.nav-links a.active { color: var(--pink-dark); }
+
+/* mobile menu opened by the hamburger */
+@media (max-width: 860px) {
+  .navbar.nav-open { height: auto; flex-wrap: wrap; padding: 16px 28px; row-gap: 14px; }
+  .navbar.nav-open .nav-links,
+  .navbar.nav-open .nav-actions { display: flex; position: static; transform: none; width: 100%; }
+  .navbar.nav-open .nav-links { flex-direction: column; gap: 14px; }
+  .navbar.nav-open .nav-actions { flex-wrap: wrap; }
+}
+
+/* toast */
+.cp-toast-wrap { position: fixed; right: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 400; }
+.cp-toast { background: var(--ink); color: var(--paper); padding: 12px 18px; border-radius: 12px;
+  font-size: 0.88rem; font-weight: 600; box-shadow: 0 8px 20px rgba(0,0,0,0.2); animation: toastIn 0.25s ease; max-width: 320px; }
+.cp-toast.error { background: #B3402F; color: #fff; }
+.cp-toast.info  { background: var(--blue); color: #14110F; }
+@keyframes toastIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+/* modal */
+.cp-modal { position: fixed; inset: 0; background: rgba(20,17,15,0.55); display: flex;
+  align-items: center; justify-content: center; padding: 20px; z-index: 300; }
+.cp-modal-card { background: var(--paper); color: var(--ink); border: 1.5px solid var(--ink); border-radius: 20px;
+  padding: 28px; width: 100%; max-width: 480px; max-height: 90vh; overflow: auto; }
+.cp-modal-card h3 { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 14px; }
+.cp-modal-body { display: flex; flex-direction: column; gap: 14px; }
+.cp-modal-note { font-size: 0.85rem; color: var(--muted-70); }
+.cp-modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+.cp-modal .form-group select,
+.cp-modal .form-group textarea { padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 10px;
+  font-family: var(--font-body); font-size: 0.9rem; color: var(--ink); background: var(--paper); }
+.cp-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.cp-list li { display: flex; justify-content: space-between; gap: 10px; font-size: 0.88rem;
+  padding: 8px 12px; background: var(--line); border-radius: 10px; }
+.cp-list span { color: var(--muted-65); font-size: 0.78rem; }
+
+/* <button> versions of your link-style buttons */
+button.btn { font-family: inherit; cursor: pointer; }
+button.btn-primary { border: 0; }
+button.btn-mini, button.btn-enroll, button.dash-status { border: 0; cursor: pointer; font-family: inherit; }
+button.btn-leave { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+
+/* registered / enrolled state */
+.btn-mini.is-done, .btn-enroll.is-done, .detail-register-btn.is-done {
+  background: var(--green); color: #14110F; border-color: var(--ink); }
+
+/* empty states on dashboards */
+.empty-state { grid-column: 1 / -1; padding: 28px; border: 1.5px dashed var(--ink); border-radius: 16px;
+  text-align: center; font-size: 0.9rem; color: var(--muted-70); }
+
+/* uploaded avatar photo (skip if you already added this) */
+.avatar-preview.has-photo { color: transparent; background-size: cover; background-position: center; }
+
+/* "account created" message on the sign-in page */
+.auth-notice {
+  background: var(--green);
+  color: #14110F;
+  border: 1.5px solid var(--ink);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
