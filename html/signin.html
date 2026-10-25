@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign In | CampusPulse</title>
   <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/theme.js" defer></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -79,7 +81,6 @@
         <div class="form-group">
           <label for="password">Password</label>
           <input type="password" id="password" name="password" placeholder="Enter your password" required>
-          <a href="forgot-password.html" class="inline-link forgot-link">Forgot password?</a>
         </div>
 
         <!-- Simple CSS-only captcha: user must retype the shown text -->
@@ -110,6 +111,7 @@
     </div>
   </main>
 
+  <script src="../js/config.js"></script>
   <script src="../js/auth.js"></script>
 
 </body>

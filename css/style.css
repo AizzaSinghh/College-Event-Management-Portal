@@ -3102,6 +3102,21 @@ ul {
   padding-right: 32px;
 }
 
+/* Google renders its own branded sign-in control inside this centered host. */
+.google-signin {
+  display: flex;
+  justify-content: center;
+  margin: 18px auto 0;
+  min-height: 40px;
+}
+
+body.theme-dark .google-signin {
+  padding: 8px;
+  background: rgba(245, 241, 234, 0.06);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
 @media (max-width: 500px) {
   .profile-form .form-row {
     grid-template-columns: 1fr;
@@ -3158,7 +3173,7 @@ ul {
   transform: translateX(20px);
 }
 
-body:has(#theme-switch:checked) {
+body.theme-dark {
   --paper: #1C1A18;
   --ink: #F5F1EA;
   --line: rgba(255, 255, 255, 0.08);
@@ -3172,7 +3187,7 @@ body:has(#theme-switch:checked) {
    DARK MODE — accent color + contrast fixes
    ========================================== */
 
-body:has(#theme-switch:checked) {
+body.theme-dark {
   /* darker, desaturated accents so they don't glare against dark surfaces */
   --blue: #3E5C66;
   --pink: #6B3A47;
@@ -3181,23 +3196,23 @@ body:has(#theme-switch:checked) {
 }
 
 /* Footer must stay a fixed dark slab regardless of --ink flipping */
-body:has(#theme-switch:checked) .site-footer {
+body.theme-dark .site-footer {
   background: #0F0E0D;
   color: #F5F1EA;
 }
 
-body:has(#theme-switch:checked) .footer-about p,
-body:has(#theme-switch:checked) .footer-links a,
-body:has(#theme-switch:checked) .footer-newsletter p,
-body:has(#theme-switch:checked) .footer-bottom p {
+body.theme-dark .footer-about p,
+body.theme-dark .footer-links a,
+body.theme-dark .footer-newsletter p,
+body.theme-dark .footer-bottom p {
   color: rgba(245, 241, 234, 0.65);
 }
 
-body:has(#theme-switch:checked) .footer-links a:hover {
+body.theme-dark .footer-links a:hover {
   color: var(--blue);
 }
 
-body:has(#theme-switch:checked) .newsletter-form input {
+body.theme-dark .newsletter-form input {
   background: rgba(245, 241, 234, 0.08);
   border-color: rgba(245, 241, 234, 0.2);
   color: #F5F1EA;
@@ -3205,23 +3220,23 @@ body:has(#theme-switch:checked) .newsletter-form input {
 
 /* Buttons sitting on pastel backgrounds need fixed dark text,
    since --ink flips to light and would wash out against them */
-body:has(#theme-switch:checked) .btn-primary,
-body:has(#theme-switch:checked) .btn-mini,
-body:has(#theme-switch:checked) .btn-enroll,
-body:has(#theme-switch:checked) .dash-cta .btn-pill,
-body:has(#theme-switch:checked) .profile-save,
-body:has(#theme-switch:checked) .dash-stat-card,
-body:has(#theme-switch:checked) .value-card,
-body:has(#theme-switch:checked) .timeline-content {
+body.theme-dark .btn-primary,
+body.theme-dark .btn-mini,
+body.theme-dark .btn-enroll,
+body.theme-dark .dash-cta .btn-pill,
+body.theme-dark .profile-save,
+body.theme-dark .dash-stat-card,
+body.theme-dark .value-card,
+body.theme-dark .timeline-content {
   color: #14110F;
 }
 
 /* Cards that use pastel fills (club cards, event date badges, etc.)
    also need dark text forced so they don't invert */
-body:has(#theme-switch:checked) .event-date,
-body:has(#theme-switch:checked) .club-tag,
-body:has(#theme-switch:checked) .category-tag,
-body:has(#theme-switch:checked) .interest-checkbox:checked + .interest-chip {
+body.theme-dark .event-date,
+body.theme-dark .club-tag,
+body.theme-dark .category-tag,
+body.theme-dark .interest-checkbox:checked + .interest-chip {
   color: #14110F;
 }
 
@@ -3645,82 +3660,82 @@ body:has(#theme-switch:checked) .interest-checkbox:checked + .interest-chip {
 
 /* Stats band already uses --ink/--paper directly, but pin it dark
    regardless of theme so it doesn't invert oddly */
-body:has(#theme-switch:checked) .stats-band {
+body.theme-dark .stats-band {
   background: #0F0E0D;
 }
 
 /* Spotlight cards (Popular Clubs carousel) */
-body:has(#theme-switch:checked) .spotlight-card {
+body.theme-dark .spotlight-card {
   background: var(--paper);
   border-color: var(--ink);
 }
 
-body:has(#theme-switch:checked) .spotlight-card span {
+body.theme-dark .spotlight-card span {
   color: var(--muted-65);
 }
 
 /* Bento grid / reveal cards - overlay text needs to stay light
    since the overlay itself stays a fixed dark scrim */
-body:has(#theme-switch:checked) .reveal-card-overlay {
+body.theme-dark .reveal-card-overlay {
   background: rgba(0, 0, 0, 0.92);
 }
 
-body:has(#theme-switch:checked) .reveal-card-overlay h3,
-body:has(#theme-switch:checked) .reveal-card-overlay p {
+body.theme-dark .reveal-card-overlay h3,
+body.theme-dark .reveal-card-overlay p {
   color: #F5F1EA;
 }
 
-body:has(#theme-switch:checked) .reveal-card-overlay .btn-enroll {
+body.theme-dark .reveal-card-overlay .btn-enroll {
   background: var(--paper);
   color: var(--ink);
 }
 
 /* Quiz picker card */
-body:has(#theme-switch:checked) .quiz-card {
+body.theme-dark .quiz-card {
   background: var(--paper);
   border-color: var(--ink);
 }
 
-body:has(#theme-switch:checked) .quiz-option {
+body.theme-dark .quiz-option {
   color: var(--ink);
   border-color: var(--line);
 }
 
-body:has(#theme-switch:checked) .quiz-result-text h3 {
+body.theme-dark .quiz-result-text h3 {
   color: var(--ink);
 }
 
 /* Alternating spotlight sections - text already inherits --ink/--muted,
    this just confirms photos don't get a weird filter */
-body:has(#theme-switch:checked) .alt-spotlight-text p {
+body.theme-dark .alt-spotlight-text p {
   color: var(--muted-70);
 }
 
 /* Member progress bars */
-body:has(#theme-switch:checked) .member-bar-track {
+body.theme-dark .member-bar-track {
   background: var(--line);
 }
 
-body:has(#theme-switch:checked) .member-bar-label span {
+body.theme-dark .member-bar-label span {
   color: var(--muted-65);
 }
 
 /* Featured card (Events page) */
-body:has(#theme-switch:checked) .featured-card {
+body.theme-dark .featured-card {
   background: var(--paper);
   border-color: var(--ink);
 }
 
-body:has(#theme-switch:checked) .featured-card-body p {
+body.theme-dark .featured-card-body p {
   color: var(--muted-70);
 }
 
-body:has(#theme-switch:checked) .featured-meta-item {
+body.theme-dark .featured-meta-item {
   color: var(--ink);
 }
 
 /* Page stat strip pills */
-body:has(#theme-switch:checked) .page-stat-pill {
+body.theme-dark .page-stat-pill {
   background: var(--paper);
   border-color: var(--ink);
   color: var(--ink);
@@ -3728,24 +3743,24 @@ body:has(#theme-switch:checked) .page-stat-pill {
 
 /* Tinted alternating sections - re-flip their tint so they stay
    visible against the dark background instead of vanishing */
-body:has(#theme-switch:checked) .event-category.tint-a {
+body.theme-dark .event-category.tint-a {
   background: rgba(255, 255, 255, 0.04);
 }
 
-body:has(#theme-switch:checked) .event-category.tint-b {
+body.theme-dark .event-category.tint-b {
   background: var(--paper);
 }
 
 /* Urgency chip - keep readable on dark surfaces */
-body:has(#theme-switch:checked) .urgency-chip {
+body.theme-dark .urgency-chip {
   color: #E8A0B0;
 }
 
-body:has(#theme-switch:checked) .footer-about .logo {
+body.theme-dark .footer-about .logo {
   color: #F5F1EA;
 }
 
-body:has(#theme-switch:checked) .footer-about .logo span {
+body.theme-dark .footer-about .logo span {
   color: var(--blue);
 }
 
@@ -3754,40 +3769,40 @@ body:has(#theme-switch:checked) .footer-about .logo span {
   color: #F5F1EA;
 }
 
-body:has(#theme-switch:checked) .site-footer {
+body.theme-dark .site-footer {
   background: #1C1815;
   color: #F5F1EA;
 }
 
-body:has(#theme-switch:checked) .btn-primary,
-body:has(#theme-switch:checked) .btn-mini,
-body:has(#theme-switch:checked) .btn-enroll,
-body:has(#theme-switch:checked) .dash-cta .btn-pill,
-body:has(#theme-switch:checked) .dash-stat-card,
-body:has(#theme-switch:checked) .value-card,
-body:has(#theme-switch:checked) .timeline-content {
+body.theme-dark .btn-primary,
+body.theme-dark .btn-mini,
+body.theme-dark .btn-enroll,
+body.theme-dark .dash-cta .btn-pill,
+body.theme-dark .dash-stat-card,
+body.theme-dark .value-card,
+body.theme-dark .timeline-content {
   color: #14110F;
 }
-body:has(#theme-switch:checked) .profile-save {
+body.theme-dark .profile-save {
   background: var(--pink);
   color: #F5F1EA;
   border-color: var(--pink);
 }
 
-body:has(#theme-switch:checked) .switch-checkbox::before {
+body.theme-dark .switch-checkbox::before {
   background: #F5F1EA;
   border-color: rgba(245, 241, 234, 0.3);
 }
 
-body:has(#theme-switch:checked) .switch-checkbox {
+body.theme-dark .switch-checkbox {
   background: rgba(245, 241, 234, 0.15);
 }
 
-body:has(#theme-switch:checked) .switch-checkbox:checked {
+body.theme-dark .switch-checkbox:checked {
   background: var(--green);
 }
 
-body:has(#theme-switch:checked) .newsletter-form .btn-mini {
+body.theme-dark .newsletter-form .btn-mini {
   background: var(--blue);
   color: #14110F;
 }
