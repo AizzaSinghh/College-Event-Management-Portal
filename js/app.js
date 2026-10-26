@@ -1,4 +1,6 @@
 // CampusPulse — browser-only events, registrations, saved events, organizer tools and profile.
+console.info("app.js v2 loaded");   // delete this line before submitting
+
 (function () {
   const read = (key, fallback) => { try { const v = JSON.parse(localStorage.getItem(key)); return v === null ? fallback : v; } catch (e) { return fallback; } };
   const write = (key, value) => localStorage.setItem(key, JSON.stringify(value));
@@ -21,7 +23,7 @@
   const profiles = () => read("cp_profiles", {});
   const profileFor = (u) => profiles()[u.email] || {};
 
-  // any event card can be registered for, even when it is not in the seed list
+  // any event card can be registered for or saved, even when it is not in the seed list
   const itemFor = (title) => events().find((e) => e.title === title) || { id: slug(title), title, owner: "system" };
 
   function dateParts(iso) {
@@ -49,8 +51,8 @@
     document.querySelectorAll(".dash-avatar, #avatar-preview").forEach((n) => { n.textContent = initials(displayName); });
     if (COLORS[profile.avatar]) document.querySelectorAll(".dash-avatar").forEach((n) => { n.style.background = COLORS[profile.avatar]; n.style.color = "#fff"; });
 
-    const saveButton = document.querySelector(".profile-save");
-    if (!saveButton) return;                                      // not a profile page
+    const saveProfileButton = document.querySelector(".profile-save");
+    if (!saveProfileButton) return;                               // not a profile page
 
     const fields = document.querySelectorAll(".profile-form input, .profile-form textarea, .profile-form select");
     fields.forEach((f) => {
@@ -70,7 +72,7 @@
     if (profile.interests) document.querySelectorAll(".interest-checkbox").forEach((c) => { c.checked = profile.interests.includes(c.id); });
     if (profile.notifs) document.querySelectorAll(".switch-checkbox").forEach((c, i) => { c.checked = Boolean(profile.notifs[i]); });
 
-    saveButton.addEventListener("click", () => {
+    saveProfileButton.addEventListener("click", () => {
       const forms = Array.from(document.querySelectorAll(".profile-form"));
       if (!forms.every((f) => f.reportValidity())) return;
       const values = {};
@@ -98,6 +100,7 @@
     if (current.role !== "student") { alert("Only students can register or save events."); return null; }
     return current;
   }
+
   function register(item, card) {
     const current = student(); if (!current) return;
     const all = read("cp_registrations", []);
@@ -106,18 +109,35 @@
     write("cp_registrations", all);
     alert("Registered for " + item.title + ". You can see it on your dashboard.");
   }
+
+  const isSaved = (id) => {
+    const current = user();
+    return Boolean(current) && read("cp_saved_events", []).some((r) => r.eventId === id && r.email === current.email);
+  };
+
+  // returns true if the event is now saved, false if it was removed, null if the user can't save
   function save(item) {
-    const current = student(); if (!current) return;
+    const current = student(); if (!current) return null;
     const all = read("cp_saved_events", []);
     const index = all.findIndex((r) => r.eventId === item.id && r.email === current.email);
     if (index >= 0) { all.splice(index, 1); alert("Event removed from saved events."); }
     else { all.push({ eventId: item.id, email: current.email }); alert("Event saved."); }
     write("cp_saved_events", all);
+    return index < 0;
   }
+
   function button(label, callback) {
     const node = document.createElement("button");
     node.type = "button"; node.className = "btn-mini"; node.textContent = label;
     node.addEventListener("click", callback);
+    return node;
+  }
+
+  function makeSaveButton(item) {
+    const node = button(isSaved(item.id) ? "Saved ✓" : "Save Event", () => {
+      const nowSaved = save(item);
+      if (nowSaved !== null) node.textContent = nowSaved ? "Saved ✓" : "Save Event";
+    });
     return node;
   }
 
@@ -132,7 +152,7 @@
       const item = itemFor(heading.textContent.trim());
       const main = info.querySelector(".btn-mini");
       if (main && /register/i.test(main.textContent)) main.addEventListener("click", (e) => { e.preventDefault(); register(item, card); });
-      info.append(button("Save Event", () => save(item)));
+      info.append(makeSaveButton(item));
     });
     const detail = document.querySelector(".detail-register-btn");
     const title = document.querySelector(".detail-banner h1");
@@ -258,12 +278,3 @@
     }));
   });
 })();
-
-var navToggle = document.querySelector(".nav-toggle");
-var navbar = document.querySelector(".navbar");
-
-if (navToggle && navbar) {
-  navToggle.addEventListener("click", function () {
-    navbar.classList.toggle("nav-open");
-  });
-}
