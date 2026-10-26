@@ -3686,3 +3686,26 @@ body:is(.theme-dark, :has(#theme-switch:checked)) .switch-checkbox:checked {
 .form-status.success { padding: 12px 16px; background: var(--green); color: #14110F; }
 .form-status.error   { padding: 12px 16px; background: #B3402F; color: #fff; }
 .btn-pill:disabled, .btn-mini:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+/* team photos on the About page */
+.team-photo {
+  display: block;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid var(--ink);
+  background: var(--line);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-card:hover .team-photo {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(20, 17, 15, 0.15);
+}
+
+@media (min-width: 900px) {
+  .team-photo { width: 180px; height: 180px; }
+}
